@@ -5,7 +5,10 @@
     <title>Main</title>
   </head>
   <body>
-    <h1>Setup</h1>
-    <p>Hello, world</p>
+    <h1>Index</h1>
+    <% @posts.each do |post| %>
+      <h2><%= post.title %></h2>
+      <p><%= post.text %></p>
+    <% end %>
   </body>
 </html>
