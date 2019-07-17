@@ -4,8 +4,13 @@ Post.create!([
   { title: 'Second post', text: 'This is the second' }
 ])
 
-# Attendants
-Attendant.create!([
-  { name: 'Joe Bloggs', court: '12' },
-  { name: 'Jane Smith', court: '6' }
-])
+Court.create!([
+  {
+    name: "1",
+    attendants: [ Attendant.new(name: 'Joe Bloggs') ]
+  },
+  {
+    name: "6",
+    attendants: [ Attendant.new(name: 'Jane Smith') ]
+  },
+)
