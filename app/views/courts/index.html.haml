@@ -1,0 +1,11 @@
+%h1 All Courts
+%table
+  %tr
+    %th Court
+    %th Total staff required
+    %th
+  - @courts.each do |court|
+    %tr
+      %td= court.name
+      %td= court.staff_total
+      %td= link_to 'Details', court_path(court)

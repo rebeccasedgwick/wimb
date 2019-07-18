@@ -1,0 +1,12 @@
+%h1 Create Court
+= form_with scope: :court, url: courts_path, local: true do |form|
+  %p
+    = form.label :name
+    %br/
+    = form.text_field :name
+  %p
+    = form.label :staff_total
+    %br/
+    = form.number_field :staff_total
+  %p
+    = form.submit
