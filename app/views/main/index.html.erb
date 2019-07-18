@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Main</title>
-  </head>
-  <body>
-    <h1>Index</h1>
-    <% @posts.each do |post| %>
-      <h2><%= post.title %></h2>
-      <p><%= post.text %></p>
-    <% end %>
-    <br>
-    <br>
-    <h1>Courts</h1>
-    <% @courts.each do |court| %>
-      <h2>Court: <%= court.name %></h2>
-      <p>Total workers: <%= court.staff_total %></p>
-      <h3>Staff:</h3>
-      <p>Total workers:</p>
+<h1>Dashboard</h1>
+
+<h2>Courts</h2>
+<table>
+  <tr>
+    <th> Court </th>
+    <th> Total staff required </th>
+    <th> Current staff </th>
+  </tr>
+
+  <% @courts.each do |court| %>
+    <tr>
+      <td><%= court.name %></td>
+      <td><%= court.staff_total %></td>
+      <td>
         <% court.workers.each do |worker| %>
-          <p><%= worker.name%></p>
+        <p><%= worker.name  %></p>
         <% end %>
-    <% end %>
-  </body>
-</html>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'View Courts', controller: 'courts' %>
