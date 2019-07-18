@@ -1,0 +1,17 @@
+<h1>All Courts</h1>
+
+<table>
+  <tr>
+    <th> Court </th>
+    <th> Total staff required </th>
+    <th></th>
+  </tr>
+
+  <% @courts.each do |court| %>
+    <tr>
+      <td><%= court.name %></td>
+      <td><%= court.staff_total %></td>
+      <td><%= link_to 'Details', court_path(court) %></td>
+    </tr>
+  <% end %>
+</table>
