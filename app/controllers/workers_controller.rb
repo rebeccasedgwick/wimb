@@ -11,6 +11,19 @@ class WorkersController < ApplicationController
     @worker = Worker.new
   end
 
+  def edit
+    @worker = Worker.find(params[:id])
+  end
+
+  def update
+    @worker = Worker.find(params[:id])
+    if @worker.update(worker_params)
+      redirect_to @worker
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @worker = Worker.new(worker_params)
     if @worker.save
