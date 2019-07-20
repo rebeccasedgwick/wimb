@@ -1,0 +1,10 @@
+%h1 All Works
+%table
+  %tr
+    %th Work
+    %th Total staff required
+    %th
+  - @workers.each do |worker|
+    %tr
+      %td= worker.name
+      %td= link_to 'Details', worker_path(worker)

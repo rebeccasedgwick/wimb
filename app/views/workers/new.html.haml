@@ -1,0 +1,15 @@
+%h1 Add new worker
+= form_with scope: :worker, url: workers_path, local: true do |form|
+  - if @worker.errors.any?
+    %div#error_explanation
+    %h2{:style => "color:red"} #{pluralize(@worker.errors.count, 'error')} prevented saving:
+    %ul
+      - @worker.errors.full_messages.each do |message|
+        %li{:style => "color:red"}
+          = message
+  %p
+    = form.label :name
+    %br/
+    = form.text_field :name
+  %p
+    = form.submit

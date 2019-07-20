@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get 'court/index'
   resources :courts
   root 'court#index'
+
+  get 'worker/index'
+  resources :workers
+  root 'worker#index'
 end
