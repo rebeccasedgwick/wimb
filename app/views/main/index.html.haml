@@ -1,9 +1,10 @@
 %h1 Dashboard
 %h2 Courts
-%table
+%table{:border => 1}
   %tr
     %th Court
-    %th Total staff required
+    %th Required staff
+    %th Allocated staff
     %th Current staff
   - @courts.each do |court|
     %tr
@@ -12,4 +13,6 @@
       %td
         - court.workers.each do |worker|
           %p= worker.name
+      %td
+        = court.workers.count
 = link_to 'View Courts', controller: 'courts'

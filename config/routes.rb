@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'main/index'
   root 'main#index'
 
-  get 'court/index'
-  resources :courts
-  root 'court#index'
+  resources :courts do
+    collection do
+      post :delete_all
+    end
+    member do
+      post :add_worker
+    end
+  end
 
-  get 'worker/index'
   resources :workers
-  root 'worker#index'
 end
