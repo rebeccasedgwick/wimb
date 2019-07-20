@@ -1,18 +1,20 @@
-%h1 Dashboard
-%h2 Courts
-%table{:border => 1}
+%h1
+  %center Dashboard
+
+%table{:style => 'border-collapse: collapse; width: 100%'}
   %tr
-    %th Court
-    %th Required staff
-    %th Allocated staff
-    %th Current staff
+    %th{:style => 'border: solid'} Court
+    %th{:style => 'border: solid'} Required staff
+    %th{:style => 'border: solid'} Allocated staff
+    %th{:style => 'border: solid'} Current staff
   - @courts.each do |court|
     %tr
-      %td= court.name
-      %td= court.staff_total
-      %td
+      %td{:style => 'border: solid'}
+        = court.name
+      %td{:style => 'border: solid'}
+        = court.staff_total
+      %td{:style => 'border: solid'}
         - court.workers.each do |worker|
           %p= worker.name
-      %td
+      %td{:style => 'border: solid'}
         = court.workers.count
-= link_to 'View Courts', controller: 'courts'
