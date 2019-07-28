@@ -1,15 +1,13 @@
 %h1
   %center All Workers
-%table
+%table.table.table-bordered
   %tr
     %th Worker
-    %th
-    %th Edit worker
+    %th Court
   - @workers.each do |worker|
     %tr
       %td= worker.name
       - if worker.courts.first.present?
         %td= worker.courts.first.name
       - else
-        %td No court assigned
-      %td= link_to 'Edit', worker_path(worker)
+        %td= link_to 'Assign court', worker_path(worker)

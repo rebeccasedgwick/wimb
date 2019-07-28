@@ -11,6 +11,10 @@
     = form.label :name
     %br/
     = form.text_field :name
+
+  %p
+    Assigned court:
+    = select_tag :assigned_court_id, options_from_collection_for_select(Court.all.order(:name), "id", "name", @assigned_court_id), include_blank: true
   %p
     = form.submit
 

@@ -1,20 +1,20 @@
 %h1
   %center Dashboard
 
-%table{:style => 'border-collapse: collapse; width: 100%'}
+%table.table.table-bordered
   %tr
-    %th{:style => 'border: solid'} Court
-    %th{:style => 'border: solid'} Required staff
-    %th{:style => 'border: solid'} Allocated staff
-    %th{:style => 'border: solid'} Current staff
+    %th Court
+    %th Required staff
+    %th Allocated staff
+    %th Current staff
   - @courts.each do |court|
     %tr
-      %td{:style => 'border: solid'}
+      %td
         = court.name
-      %td{:style => 'border: solid'}
+      %td
         = court.staff_total
-      %td{:style => 'border: solid'}
-        - court.workers.each do |worker|
+      %td
+        - court.active_workers.each do |worker|
           %p= worker.name
-      %td{:style => 'border: solid'}
-        = court.workers.count
+      %td
+        = court.active_workers.count
