@@ -3,9 +3,13 @@
 %table
   %tr
     %th Worker
-    %th Total staff required
     %th
+    %th Edit worker
   - @workers.each do |worker|
     %tr
       %td= worker.name
-      %td= link_to 'Details', worker_path(worker)
+      - if worker.courts.first.present?
+        %td= worker.courts.first.name
+      - else
+        %td No court assigned
+      %td= link_to 'Edit', worker_path(worker)
