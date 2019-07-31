@@ -5,8 +5,8 @@
   %tr
     %th Court
     %th Required staff
-    %th Allocated staff
     %th Current staff
+    %th Allocated staff
   - @courts.each do |court|
     %tr
       %td
@@ -14,7 +14,7 @@
       %td
         = court.staff_total
       %td
+        = court.active_workers.count
+      %td
         - court.active_workers.each do |worker|
           %p= worker.name
-      %td
-        = court.active_workers.count
