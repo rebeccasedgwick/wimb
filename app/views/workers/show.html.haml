@@ -1,9 +1,24 @@
-%p
-  %strong Worker:
-  %br/
+%h1
   = @worker.name
 
 %p
-  = link_to 'Edit', edit_worker_path(@worker)
-%p
-  = link_to 'All workers', workers_path
+  = link_to 'Edit personal info', edit_worker_path(@worker)
+
+%h3 Timesheet
+
+%table.table.table-bordered
+  %tr
+    %th Start time
+    %th End time
+    %th Duration
+    %th Location
+  - @worker.shifts.each do |shift|
+    %tr
+      %td
+        = shift.start_time
+      %td
+        = shift.end_time
+      %td
+        = shift.formatted_duration
+      %td
+        = shift.staffing.court.name

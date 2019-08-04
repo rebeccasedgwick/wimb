@@ -17,4 +17,4 @@
         = court.active_workers.count
       %td
         - court.active_workers.each do |worker|
-          %p= worker.name
+          %p= link_to worker.name, worker_path(worker)

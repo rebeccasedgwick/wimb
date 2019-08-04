@@ -6,7 +6,7 @@
     %th Court
   - @workers.each do |worker|
     %tr
-      %td= worker.name
+      %td= link_to worker.name, worker_path(worker)
       - if worker.courts.first.present?
         %td= worker.courts.first.name
       - else
