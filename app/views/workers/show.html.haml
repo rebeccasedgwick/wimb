@@ -8,17 +8,17 @@
 
 %table.table.table-bordered
   %tr
+    %th Location
     %th Start time
     %th End time
     %th Duration
-    %th Location
   - @worker.shifts.each do |shift|
     %tr
       %td
-        = shift.start_time
-      %td
-        = shift.end_time
-      %td
-        = shift.formatted_duration
-      %td
         = shift.staffing.court.name
+      %td{style: "text-align:right"}
+        = shift.start_time.to_s(:display_time_and_date).html_safe
+      %td{style: "text-align:right"}
+        = shift.end_time.to_s(:display_time_and_date).html_safe
+      %td{style: "text-align:right"}
+        = shift.formatted_duration

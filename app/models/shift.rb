@@ -16,12 +16,6 @@ class Shift < ApplicationRecord
   end
 
   def formatted_duration
-    hours = duration / 3600
-    hour_remainder = duration % 3600
-    minutes = hour_remainder / 60
-    seconds = hour_remainder % 60
-    [hours, minutes, seconds].map do |number|
-      "%02d" % number
-    end.join(":")
+    "%02dh %02dm" % [duration/3600, duration/60%60, duration%60]
   end
 end
