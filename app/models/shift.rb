@@ -3,6 +3,7 @@ class Shift < ApplicationRecord
   belongs_to :staffing
 
   before_validation :assign_worker, on: :create
+  validates_presence_of :start_time
   before_save :assign_duration
 
   def assign_worker

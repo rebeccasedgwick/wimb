@@ -6,19 +6,26 @@
 
 %h3 Timesheet
 
-%table.table.table-bordered
-  %tr
-    %th Location
-    %th Start time
-    %th End time
-    %th Duration
-  - @worker.shifts.each do |shift|
+- if @worker.shifts.present?
+  %table.table.table-bordered
     %tr
-      %td
-        = shift.staffing.court.name
-      %td{style: "text-align:right"}
-        = shift.start_time.to_s(:display_time_and_date).html_safe
-      %td{style: "text-align:right"}
-        = shift.end_time.to_s(:display_time_and_date).html_safe
-      %td{style: "text-align:right"}
-        = shift.formatted_duration
+      %th Location
+      %th Start time
+      %th End time
+      %th Duration
+      - @worker.shifts.each do |shift|
+        %tr
+          %td
+            = shift.staffing.court.name
+          %td
+            = shift.start_time.to_s(:display_time_and_date)
+          %td
+            - if shift.end_time.present?
+              = shift.end_time.to_s(:display_time_and_date)
+            - else
+              Not signed out
+          %td
+            - if !shift.duration.nil?
+              = shift.formatted_duration
+- else
+  %p No shifts to display
