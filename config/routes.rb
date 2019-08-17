@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :workers
+  resources :workers, :shifts
 end

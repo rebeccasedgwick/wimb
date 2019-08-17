@@ -23,7 +23,7 @@
             - if shift.end_time.present?
               = shift.end_time.to_s(:display_time_and_date)
             - else
-              Not signed out
+              = link_to 'Sign out now', shift_path(shift, :end_time => Time.now), :method => :put
           %td
             - if !shift.duration.nil?
               = shift.formatted_duration

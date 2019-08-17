@@ -24,7 +24,6 @@ class WorkersController < ApplicationController
       end
       @worker.staffings.create!(court_id: params[:assigned_court_id], active: true)
       redirect_to @worker
-      # redirect_to edit_worker_path(@worker)
     else
       render 'edit'
     end
