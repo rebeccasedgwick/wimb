@@ -9,12 +9,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header
-      %table{:style => 'width: 100%'}
-        %tr
-          %th
-            = link_to 'Home', root_path
-          %th
-            = link_to 'Courts', controller: 'courts'
-          %th
-            = link_to 'Workers', controller: 'workers'
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        %ul.navbar-nav.mr-auto
+          %li.nav-item
+            = link_to 'Home', root_path, class: "nav-link"
+          %li.nav-item
+            = link_to 'Courts', courts_path, class: "nav-link"
+          %li.nav-item
+            = link_to 'Workers', workers_path, class: "nav-link"
     = yield
