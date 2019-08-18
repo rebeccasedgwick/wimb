@@ -1,13 +1,14 @@
-%h1
-  %center All Workers
-%table.table.table-bordered
-  %tr
-    %th Worker
-    %th Court
-  - @workers.each do |worker|
+%h1 All Workers
+%table.table.table-sm
+  %thead.thead-dark
     %tr
-      %td= link_to worker.name, worker_path(worker)
-      - if worker.courts.first.present?
-        %td= worker.courts.first.name
-      - else
-        %td= link_to 'Assign court', worker_path(worker)
+      %th Worker
+      %th Court
+  %tbody
+    - @workers.each do |worker|
+      %tr
+        %td= link_to worker.name, worker_path(worker)
+        - if worker.courts.first.present?
+          %td= worker.courts.first.name
+        - else
+          %td= link_to 'Assign court', worker_path(worker)

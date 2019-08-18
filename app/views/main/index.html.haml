@@ -1,12 +1,12 @@
-%h1
-  %center Dashboard
-
-%table.table.table-bordered
-  %tr
-    %th Court
-    %th Required staff
-    %th Current staff
-    %th Allocated staff
+%h1 Dashboard
+%table.table.table-sm
+  %thead.thead-dark
+    %tr
+      %th Court
+      %th Required staff
+      %th Current staff
+      %th Allocated staff
+  %tbody
   - @courts.each do |court|
     %tr
       %td

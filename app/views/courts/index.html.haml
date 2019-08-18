@@ -1,12 +1,13 @@
-%h1
-  %center All Courts
-%table.table.table-bordered
+%h1 All Courts
+%table.table.table-sm
   %tr
-    %th Court
-    %th Total staff required
-    %th
-  - @courts.each do |court|
-    %tr
-      %td= court.name
-      %td= court.staff_total
-      %td= link_to 'Details', court_path(court)
+    %thead.thead-dark
+      %th Court
+      %th Total staff required
+      %th
+    %tbody
+    - @courts.each do |court|
+      %tr
+        %td= court.name
+        %td= court.staff_total
+        %td= link_to 'Details', court_path(court)
